@@ -9,10 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let helloLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hello"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.addSubview(helloLabel)
+        
+        NSLayoutConstraint.activate([helloLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     helloLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                                     helloLabel.heightAnchor.constraint(equalToConstant: 50)])
+        
     }
 
     override func didReceiveMemoryWarning() {
